@@ -1,0 +1,28 @@
+# Libvirt Hypervisor Connection URI:
+# - Remote host via SSH alias: "qemu+ssh://sandbox-hypervisor/system"
+# - Remote host via IP/User:   "qemu+ssh://user@192.0.2.10/system"
+# - Local hypervisor:          "qemu:///system"
+libvirt_uri = "qemu+ssh://sandbox-hypervisor/system"
+
+# VM Resource Allocation
+vm_name       = "airgapped-sandbox-hypervisor"
+vm_memory_mb  = 32768
+vm_vcpu       = 8
+
+# Storage Configuration
+storage_pool_name = "default"
+base_image_source = "https://cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-amd64.img"
+disk_size_bytes   = 64424509440 # 60 GB
+
+# Air-Gapped Isolated Network Configuration (mode = "none")
+create_isolated_network = true
+network_name            = "airgap-sandbox-net"
+network_cidr            = "10.160.0.0/24"
+network_domain          = "sandbox.local"
+
+# Guest OS Credentials & Virtualization Settings
+admin_username      = "sandboxadmin"
+ssh_public_key_path = "~/.ssh/id_sandbox_hypervisor_ed25519.pub"
+enable_nested_kvm   = true
+enable_qemu_agent   = false
+wait_for_lease      = false

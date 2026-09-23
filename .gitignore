@@ -1,0 +1,21 @@
+# Terraform / OpenTofu
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!terraform.tfvars.example
+.terraform.lock.hcl
+
+# Secrets and Keys
+*.pem
+*.key
+id_rsa*
+id_*_ed25519*
+known_hosts
+target.env
+tfplan
+*.tfplan
+
+# Python Cache
+__pycache__/
+*.pyc
